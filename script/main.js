@@ -222,30 +222,30 @@ function addTodo(e, todoArray, focusedTodo) {
 }
 
 function showMatching(toMatch, todoArray, focusedTodo) {
-    if (toMatch === '') {
-        errorMsg.innerHTML = 'No search word added';
+  if (toMatch === "") {
+    errorMsg.innerHTML = "No search word added";
+    refreshTodo(todoArray, focusedTodo);
+    //error message disappears after 3 seconds
+    setTimeout(() => {
+      errorMsg.innerHTML = "";
+    }, 3000);
+  } else {
+    const filteredIndex = [];
+    const filteredTodo = todoArray.filter(function (todo, index) {
+      saveIndex(todo, toMatch, index, filteredIndex);
+      return todo.todo.toLowerCase().includes(toMatch.toLowerCase());
+    });
+    if (filteredTodo.length === 0) {
+      errorMsg.innerHTML = "No match";
+      //hide error msg after 3 seconds then show all todos
+      setTimeout(() => {
+        errorMsg.innerHTML = "";
         refreshTodo(todoArray, focusedTodo);
-        //error message disappears after 3 seconds
-        setTimeout(() => {
-            errorMsg.innerHTML = '';
-        }, 3000);
+      }, 3000);
     } else {
-        const filteredIndex = [];
-        const filteredTodo = todoArray.filter(function(todo, index) {
-            saveIndex(todo, toMatch, index, filteredIndex);
-            return todo.todo.includes(toMatch);
-        })
-        if (filteredTodo.length === 0) {
-            errorMsg.innerHTML = 'No match';
-            //hide error msg after 3 seconds then show all todos
-            setTimeout(() => {
-                errorMsg.innerHTML = '';
-                refreshTodo(todoArray, focusedTodo);
-            }, 3000);
-        } else {
-            showFilteredTodo(filteredTodo, filteredIndex, todoArray, focusedTodo);
-        }
-    } 
+      showFilteredTodo(filteredTodo, filteredIndex, todoArray, focusedTodo);
+    }
+  }
 }
 
 function saveIndex(todo, toMatch, index, indexArray) {
