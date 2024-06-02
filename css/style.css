@@ -1,0 +1,280 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.cedarville-cursive-regular {
+    font-family: "Cedarville Cursive", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.indie-flower-regular {
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    /* Dark Theme */
+    --color1: #0d1b2a;
+    --color2: #1b263b;
+    --color3: #415a77;
+    --color4: #778da9;
+    --color5: #cecfd8;
+}
+
+.light-theme {
+    /* Light Theme 
+    --color2: #274c77;*/
+    --color1: #e7ecef;
+    --color2: #a3cef1;
+    --color3: #6096ba;
+    --color4: #4181ca;
+    --color5: #000c33;
+}
+
+body {
+    position: relative;
+    background-color: var(--color1);
+    color: var(--color5);
+}
+
+.icon-theme {
+    font-size: 50px;
+    color: var(--color5);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 70px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    color: var(--color5);
+    background-color: var(--color3);
+    border: none;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+button:hover {
+    background-color: var(--color4);
+}
+
+.icon {
+    position: relative;
+    top: 3px;
+}
+
+#addBtn {
+    flex: 1;
+    font-size: 20px;
+    font-weight: bold;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#options input {
+    flex: 2;
+    background-color: var(--color2);
+    border: none;
+    padding: 3px 5px;
+    font-family: "Indie Flower", cursive;
+    font-size: 25px;
+    color: var(--color5);
+    font-weight: bold;
+}
+
+#options input::placeholder {
+    color: var(--color4);
+}
+
+#options input:focus {
+    outline: none;
+}
+
+#searchBtn {
+    flex: 1;
+    font-size: 20px;
+    font-weight: bold;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.error-msg {
+    text-align: center;
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 30px;
+    color: coral;
+    height: 40px;
+}
+
+.todo-container {
+    background-color: var(--color4);
+    min-height: 80px;
+    border-radius: 10px;
+    position: relative;
+    margin: 20px 0;
+}
+
+.todo-container input[type='checkbox'] {
+    width: 0;
+}
+
+.todo-container input[type='checkbox']:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--color1);
+    background-color: var(--color3);
+    border-radius: 10px;
+}
+
+.todo-container input[type='checkbox']:checked:after {
+    content: "";
+    width: 20px;
+    height: 35px;
+    border: solid var(--color5);
+    border-width: 0 5px 5px 0;
+    border-bottom-right-radius: 10px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    position: absolute;
+    top: 12px;
+    left: 25px;
+}
+
+.icon-confirm {
+    font-size: 25px;
+    position: relative;
+    left: 1px;
+    top: 1px;
+}
+
+.todo-container .confirmEdit {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+}
+
+.todo-container textarea {
+    margin-top: 10px;
+    margin-left: 70px;
+    resize: none;
+    height: 60px;
+    width: 85%;
+    background-color: var(--color4);
+    border: none;
+    color: var(--color5);
+    font-family: "Indie Flower", cursive;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+.todo-container textarea:focus {
+    outline: none;
+}
+
+.icon-todo {
+    position: relative;
+    left: 1px;
+}
+
+.btn:hover {
+    background-color: var(--color2);
+}
+
+.editBtn {
+    display: none;
+    position: absolute;
+    top: -10px;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+}
+
+.delBtn {
+    display: none;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    color: coral;
+}
+  
+#choices {
+    display: none;
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    background-color: var(--color3);
+    border: 3px solid var(--color4);
+    border-radius: 20px;
+    width: 30%;
+    min-height: 30%;
+}
+
+#choices .icon-delete {
+    margin-top: 20px;
+    float: left;
+    color: coral;
+    font-size: 40px;
+    padding: 20px;
+}
+
+#choices h2 {
+    margin-top: 20px;
+    color: var(--color5);
+    font-family: "Indie Flower", cursive;
+    font-size: 30px;
+}
+
+#choices p {
+    color: var(--color5);
+    font-family: "Indie Flower", cursive;
+    font-size: 20px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#choices .choice-button {
+    background-color: coral;
+    color: var(--color1);
+    font-family: "Cedarville Cursive", cursive;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0 25px;
+    margin: 10px;
+}
+
+#choices .choice-button:hover {
+    color: var(--color5);
+}
